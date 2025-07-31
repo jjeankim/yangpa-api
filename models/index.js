@@ -7,7 +7,10 @@ let sequelize = new Sequelize(
   config.database,
   config.username,
   config.password,
-  config
+  {
+    host: config.host,
+    dialect: 'postgres', // <-- 여기에 사용할 DB 종류를 명시
+  }
 );
 
 const User = require('./user');
