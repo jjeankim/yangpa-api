@@ -1,20 +1,17 @@
-const Sequelize = require('sequelize');
-const process = require('process');
-const env = process.env.NODE_ENV || 'development';
-const config = require('../config/config.js')[env];
+const Sequelize = require("sequelize");
+const process = require("process");
+const env = process.env.NODE_ENV || "development";
+const config = require("../config/config.js")[env];
 const db = {};
 let sequelize = new Sequelize(
   config.database,
   config.username,
   config.password,
-  {
-    host: config.host,
-    dialect: 'postgres', // <-- 여기에 사용할 DB 종류를 명시
-  }
+  config
 );
 
-const User = require('./user');
-const Sale = require('./sale');
+const User = require("./user");
+const Sale = require("./sale");
 
 db.User = User;
 db.Sale = Sale;
